@@ -28,7 +28,6 @@ router.post('/user/signup',async (req,res)=>{
     }
     else{
         const emailUser = await User.findOne({email:email});
-        console.log(emailUser)
         if(emailUser){
             req.flash('error_ms','El correo ya esta registrado');
             res.redirect('/user/signup');
