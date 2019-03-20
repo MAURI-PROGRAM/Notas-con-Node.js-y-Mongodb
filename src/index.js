@@ -6,6 +6,8 @@ const session = require('express-session');
 const flash = require('connect-flash');
 const passport = require('passport');
 
+
+
 //inicializacion
 const app = express();
 require('./databse');
@@ -40,6 +42,7 @@ app.use((req,res,next)=>{
     res.locals.success_ms=req.flash('success_ms');
     res.locals.error_ms=req.flash('error_ms');
     res.locals.error=req.flash('error');
+    res.locals.user=req.user || null;
     next();
 });
 

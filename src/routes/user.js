@@ -6,6 +6,10 @@ const passport = require('passport');
 router.get('/user/signin',(req,res)=>{
     res.render('user/signin');
 });
+router.get('/user/logout',(req,res)=>{
+    req.logOut();
+    res.redirect('/');
+});
 router.post('/user/signin',passport.authenticate('local',{
     successRedirect : '/notes',
     failureRedirect : '/user/signin',
